@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/balance','StripeController@getBalance');
+Route::post('/charge','StripeController@charge');
+Route::post('/webhook','WebhookController@handle');

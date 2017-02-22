@@ -7,4 +7,7 @@ use Illuminate\Http\Request;
 class WebhookController extends Controller
 {
     //
+    public function handle(Request $request){
+      
+    }
 }
