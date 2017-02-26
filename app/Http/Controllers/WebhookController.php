@@ -8,6 +8,6 @@ class WebhookController extends Controller
 {
     //
     public function handle(Request $request){
-      event(new StripeNotification($request->type, $request->data['object']))
+      event(new StripeNotification($request->type, $request->data['object']));
     }
 }
