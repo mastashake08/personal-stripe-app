@@ -12,17 +12,18 @@ use NotificationChannels\WebPush\WebPushChannel;
 class StripeNotification extends Notification
 {
     use Queueable;
-    public $type,$data;
+    public $type,$data,$message;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($type,$data)
+    public function __construct($type,$data=null,$message=null)
     {
         //
         $this->type = $type;
         $this->data = $data;
+        $this->message = $message;
     }
 
 
@@ -40,12 +41,12 @@ class StripeNotification extends Notification
 
     public function toWebPush($notifiable, $notification)
     {
-        if($this->data['amount'] === null){
+        if($this->message !== null){
           return WebPushMessage::create()
               // ->id($notification->id)
               ->title('New Stripe Notification - '. $this->type)
               ->icon(url('/push.png'))
-              ->body($this->data);
+              ->body($this->message);
 
         }
         return WebPushMessage::create()
