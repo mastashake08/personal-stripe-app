@@ -40,12 +40,19 @@ class StripeNotification extends Notification
 
     public function toWebPush($notifiable, $notification)
     {
+        if($this->data['amount'] === null){
+          return WebPushMessage::create()
+              // ->id($notification->id)
+              ->title('New Stripe Notification - '. $this->type)
+              ->icon(url('/push.png'))
+              ->body($this->data);
+
+        }
         return WebPushMessage::create()
             // ->id($notification->id)
             ->title('New Stripe Notification - '. $this->type)
             ->icon(url('/push.png'))
             ->body("$".money_format('%.2n', $this->data["amount"]/100))
-            ->action('View account', 'view_account');
     }
 
 
