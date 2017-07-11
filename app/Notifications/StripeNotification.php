@@ -45,7 +45,7 @@ class StripeNotification extends Notification
           return WebPushMessage::create()
               // ->id($notification->id)
               ->title('New Stripe Notification - '. $this->type)
-              ->icon(url('/push.png'))
+              ->icon(url('/money.png'))
               ->body($this->message);
 
         }
