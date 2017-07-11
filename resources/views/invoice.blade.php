@@ -11,10 +11,10 @@
                     <form class="form" role="form" method="post">
                       {{csrf_field()}}
                       <div class="form-group">
-                      <input type="email" name="email" class="form-control" />
+                      <input type="email" name="email" class="form-control" placeholder="Email"/>
                       </div>
                       <div class="form-group">
-                      <input type="number" name="amount" class="form-control" />
+                      <input type="number" name="amount" class="form-control" placeholder="Amount"/>
                       </div>
                       <button class="btn btn-default" type="submit">Send Invoice</button>
                     </form>

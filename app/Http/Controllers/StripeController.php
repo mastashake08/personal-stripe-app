@@ -58,20 +58,13 @@ class StripeController extends Controller
 
     public function charge(Request $request){
       try {
-        $token = \Stripe\Token::create([
-          "card" => [
-            "number" => $request->cc_number,
-            "exp_month" => $request->exp_month,
-            "exp_year" => $request->exp_year,
-            "cvc" => $request->cvc
-            ]
-        ]);
+        $invoice = \App\Invoice::findOrFail($request->id);
         // Use Stripe's library to make requests...
         \Stripe\Charge::create([
-          "amount" => $request->amount * 100,
+          "amount" => $invoice->amount * 100,
           "currency" => "usd",
-          "source" => $token, // obtained with Stripe.js
-          "description" => $request->description
+          "source" => $stripeToken, // obtained with Stripe.js
+
         ]);
         $json = [
           'success' => true
@@ -114,5 +107,11 @@ class StripeController extends Controller
       $invoice = \App\Invoice::create($request->all());
       $invoice->notify(new \App\Notifications\SendInvoice());
       return redirect('/');
+    }
+    public function getInvoice($id){
+      $with = [
+        'invoice' => \App\Invoice::findOrFail($id)
+      ];
+      return view('pay-invoice')->with($with);
     }
 }
