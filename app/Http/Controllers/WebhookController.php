@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events\StripeNotification;
+use App\Notifications\StripeNotification;
 class WebhookController extends Controller
 {
     //
