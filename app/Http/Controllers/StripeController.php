@@ -109,8 +109,12 @@ class StripeController extends Controller
       return redirect('/');
     }
     public function getInvoice($id){
+      $invoice = \App\Invoice::findOrFail($id);
+      if($invoice->paid){
+        abort(404);
+      }
       $with = [
-        'invoice' => \App\Invoice::findOrFail($id)
+        'invoice' => $invoice
       ];
       return view('pay-invoice')->with($with);
     }

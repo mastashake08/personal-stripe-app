@@ -20,3 +20,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/balance','StripeController@getBalance');
 Route::post('/charge','StripeController@charge');
 Route::post('/webhook','WebhookController@handle');
+
+Route::post('/save-subscription/{id}',function($id, Request $request){
+  $user = \App\User::findOrFail($id);
+
+  $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256dh'), $request->input('keys.auth'));
+  $user->notify(new \App\Notifications\StripeNotification("Welcome To WebPush", "You will now get all of our push notifications"));
+  return response()->json([
+    'success' => true
+  ]);
+});
+
+Route::post('/send-notification/{id}', function($id, Request $request){
+  $user = \App\User::findOrFail($id);
+  $user->notify(new \App\Notifications\StripeNotification($request->title, $request->body));
+  return response()->json([
+    'success' => true
+  ]);
+});
