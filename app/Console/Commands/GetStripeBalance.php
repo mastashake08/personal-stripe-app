@@ -42,9 +42,9 @@ class GetStripeBalance extends Command
         try {
           // Use Stripe's library to make requests...
           $balance = \Stripe\Balance::retrieve();
-        //  dd($balance['pending'][0]->amount);
+          dd($balance['pending'][0]->amount);
           $available = money_format(" $%i", $balance['available'][0]->amount/100);
-          //$pending = money_format(" $%i", $balance['pending'][0]->amount/100);
+          $pending = money_format(" $%i", $balance['pending'][0]->amount/100);
 
           $message = "Available Balance: {$available}";
           $title = "Your Daily Stripe Balance";
