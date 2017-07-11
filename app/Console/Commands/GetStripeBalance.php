@@ -27,6 +27,7 @@ class GetStripeBalance extends Command
      */
     public function __construct()
     {
+      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         parent::__construct();
     }
 
