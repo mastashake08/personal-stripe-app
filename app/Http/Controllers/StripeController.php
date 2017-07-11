@@ -109,4 +109,10 @@ class StripeController extends Controller
         return response()->json($body);
       }
     }
+
+    public function sendInvoice(Request $request){
+      $invoice = \App\Invoice::create($request->all());
+      $invoice->notify(new \App\Notifications\SendInvoice());
+      return redirect('/');
+    }
 }

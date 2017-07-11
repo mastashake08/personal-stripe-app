@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/invoice',function(){
+  return view('invoice');
+});
+Route::post('/invoice','StripeController@sendInvoice');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
