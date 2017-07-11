@@ -48,7 +48,7 @@ class GetStripeBalance extends Command
           $message = "Available: {$available}. Pending {$pending}";
           $title = "Your Daily Stripe Balance";
           $user = \App\User::findOrFail(1);
-          $user->notify(new \App\Notifications\StripeNotification($title,$message));
+          $user->notify(new \App\Notifications\StripeNotification($title,null,$message));
         } catch(\Stripe\Error\Card $e) {
           // Since it's a decline, \Stripe\Error\Card will be caught
           $body = $e->getJsonBody();
