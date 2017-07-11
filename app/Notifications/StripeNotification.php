@@ -44,7 +44,7 @@ class StripeNotification extends Notification
             // ->id($notification->id)
             ->title('New Stripe Notification - '. $this->type)
             ->icon(url('/push.png'))
-            ->body($this->data->amount)
+            ->body($this->data["amount"])
             ->action('View account', 'view_account');
     }
 
