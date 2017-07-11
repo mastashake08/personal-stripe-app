@@ -3,7 +3,7 @@ self.addEventListener('push', function(event) {
     var data = event.data.json();
     self.registration.showNotification(data.title,{
       body: data.body,
-      badge: 'https://payments.jyroneparker.com/money.png',
+      badge: 'https://payments.jyroneparker.com/push.png',
       icon: data.icon,
       vibrate: [300]
     });
