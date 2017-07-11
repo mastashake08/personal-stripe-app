@@ -44,7 +44,7 @@ class StripeNotification extends Notification
             // ->id($notification->id)
             ->title('New Stripe Notification - '. $this->type)
             ->icon(url('/push.png'))
-            ->body(money_format('%.2n', $this->data["amount"]/100))
+            ->body("$".money_format('%.2n', $this->data["amount"]/100))
             ->action('View account', 'view_account');
     }
 
