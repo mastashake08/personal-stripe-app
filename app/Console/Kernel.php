@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('balance:get')
-               ->twiceDaily(8,17);
+               ->twiceDaily(8, 17);
     }
 
     /**
