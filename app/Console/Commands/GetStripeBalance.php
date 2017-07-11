@@ -42,12 +42,12 @@ class GetStripeBalance extends Command
         try {
           // Use Stripe's library to make requests...
           $balance = \Stripe\Balance::retrieve();
-          dd($balance['pending'][0]->amount);
           $available = money_format(" $%i", $balance['available'][0]->amount/100);
           $pending = money_format(" $%i", $balance['pending'][0]->amount/100);
 
-          $message = "Available Balance: {$available}";
+          $message = "Available: {$available}. Pending {$pending}";
           $title = "Your Daily Stripe Balance";
+          dd($message);
           $user = \App\User::findOrFail(1);
           $user->notify(new \App\Notifications\StripeNotification($title,$message));
         } catch(\Stripe\Error\Card $e) {
