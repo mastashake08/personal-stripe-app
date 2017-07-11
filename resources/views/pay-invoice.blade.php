@@ -80,7 +80,7 @@
                 <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="{{env('STRIPE_KEY')}}"
-                data-amount= {{$invoice->amount}}  * 100
+                data-amount= {{$invoice->amount * 100}}  
                 data-name="Jyrone Parker Invoice"
                 data-description="IT Services"
                 data-image="https://s3.amazonaws.com/stripe-uploads/acct_15vDa4BVrwEbLrDTmerchant-icon-1496171148142-photo.jpg"
