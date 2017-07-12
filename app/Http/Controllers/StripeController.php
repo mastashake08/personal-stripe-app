@@ -58,12 +58,12 @@ class StripeController extends Controller
 
     public function charge(Request $request){
       try {
-        $invoice = \App\Invoice::findOrFail($request->id);
+        $invoice = \App\Invoice::findOrFail($request->invoice_id);
         // Use Stripe's library to make requests...
         \Stripe\Charge::create([
           "amount" => $invoice->amount * 100,
           "currency" => "usd",
-          "source" => $stripeToken, // obtained with Stripe.js
+          "source" => $request->stripeToken, // obtained with Stripe.js
 
         ]);
         $json = [

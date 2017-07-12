@@ -77,7 +77,7 @@
 
                 <form action="/api/charge" method="POST">
                   {{csrf_field()}}
-                  <input type="hidden" value="{{$invoice->id}}"/>
+                  <input type="hidden" value="{{$invoice->id}}" name="invoice_id"/>
                 <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="{{env('STRIPE_KEY')}}"
