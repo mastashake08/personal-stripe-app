@@ -8,6 +8,7 @@ self.addEventListener('push', function(event) {
       icon: data.icon,
       vibrate: [300],
       actions: data.actions,
+      data: {id:data.id}
     });
     console.log(data.id);
     console.log('This push event has data: ', event.data.text());
