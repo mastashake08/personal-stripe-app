@@ -13,7 +13,7 @@ self.addEventListener('push', function(event) {
   }
 });
 self.addEventListener('notificationclick', function(event) {
-  var eventId = event.notification.data.id;
+  var eventId = event.notification.id;
 
   event.notification.close();
 
