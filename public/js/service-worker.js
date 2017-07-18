@@ -1,6 +1,6 @@
 self.addEventListener('push', function(event) {
   if (event.data) {
-    var data = event.data.json();
+    var data = event.data.json()
     self.registration.showNotification(data.title,{
       id: data.id,
       body: data.body,
@@ -16,7 +16,7 @@ self.addEventListener('push', function(event) {
 });
 self.addEventListener('notificationclick', function(event) {
   var eventId = event.notification.id;
-
+  console.log(eventId);
   event.notification.close();
 
   if (event.action === 'view_details') {
