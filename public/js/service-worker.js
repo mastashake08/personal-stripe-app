@@ -16,7 +16,7 @@ self.addEventListener('push', function(event) {
   }
 });
 self.addEventListener('notificationclick', function(event) {
-  dd(event);
+  console.log(event);
   var eventId = event.notification.data.id;
   console.log(eventId);
   event.notification.close();
