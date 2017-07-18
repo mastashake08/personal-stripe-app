@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/balance','StripeController@getBalance');
 Route::post('/charge','StripeController@charge');
 Route::post('/webhook','WebhookController@handle');
-
+Route::group(['prefix' => 'test'],function(){
+  Route::post('/webhook','WebhookController@handle');
+});
 Route::post('/save-subscription/{id}',function($id, Request $request){
   $user = \App\User::findOrFail($id);
 
