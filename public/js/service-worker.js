@@ -7,7 +7,7 @@ self.addEventListener('push', function(event) {
       badge: 'https://payments.jyroneparker.com/push.png',
       icon: data.icon,
       vibrate: [300],
-      actions: data.action,
+      actions: data.actions,
     });
     console.log('This push event has data: ', event.data.text());
   } else {
