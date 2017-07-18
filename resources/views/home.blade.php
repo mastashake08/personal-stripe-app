@@ -126,7 +126,6 @@ function enableNotifications(){
   askPermission();
 }
 registerServiceWorker();
-ServiceWorkerRegistration.update();
 enableNotifications();
 </script>
 @endsection
