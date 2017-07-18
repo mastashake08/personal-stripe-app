@@ -12,7 +12,7 @@ use NotificationChannels\WebPush\WebPushChannel;
 class StripeNotification extends Notification
 {
     use Queueable;
-    public $type,$data,$message, $event_id,;
+    public $type,$data,$message, $event_id;
     /**
      * Create a new notification instance.
      *
