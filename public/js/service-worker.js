@@ -2,10 +2,12 @@ self.addEventListener('push', function(event) {
   if (event.data) {
     var data = event.data.json();
     self.registration.showNotification(data.title,{
+      id: data.id,
       body: data.body,
       badge: 'https://payments.jyroneparker.com/push.png',
       icon: data.icon,
-      vibrate: [300]
+      vibrate: [300],
+      actions: data.actions,
     });
     console.log('This push event has data: ', event.data.text());
   } else {
