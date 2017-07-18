@@ -12,3 +12,13 @@ self.addEventListener('push', function(event) {
     console.log('This push event has no data.');
   }
 });
+self.addEventListener('notificationclick', function(event) {
+  var eventId = event.notification.data.event_id;
+
+  event.notification.close();
+
+  if (event.action === 'view_details') {
+    clients.openWindow("/view-details?event_id=" + eventId);
+  }
+
+}, false);

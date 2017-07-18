@@ -21,3 +21,4 @@ Route::post('/invoice','StripeController@sendInvoice');
 Auth::routes();
 Route::get('/pay-invoice/{id}','StripeController@getInvoice');
 Route::get('/home', 'HomeController@index');
+Route::get('/view-details','StripeController@getEvent');

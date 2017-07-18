@@ -118,4 +118,10 @@ class StripeController extends Controller
       ];
       return view('pay-invoice')->with($with);
     }
+    public function getEvent(Request $request){
+      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+      $event = \Stripe\Event::retrieve($request->event_id);
+      return $event;
+    }
 }
