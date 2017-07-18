@@ -9,6 +9,7 @@ self.addEventListener('push', function(event) {
       vibrate: [300],
       actions: data.actions,
     });
+    console.log(data.actions);
     console.log('This push event has data: ', event.data.text());
   } else {
     console.log('This push event has no data.');
