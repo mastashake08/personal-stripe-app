@@ -1,6 +1,6 @@
 self.addEventListener('push', function(event) {
   if (event.data) {
-    var data = event.data
+    var data = event.data.json();
     self.registration.showNotification(data.title,{
       id: data.id,
       body: data.body,
