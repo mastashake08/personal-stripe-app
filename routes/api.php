@@ -21,7 +21,7 @@ Route::get('/balance','StripeController@getBalance');
 Route::post('/charge','StripeController@charge');
 Route::post('/webhook','WebhookController@handle');
 Route::group(['prefix' => 'test'],function(){
-  Route::post('/webhook','WebhookController@handle');
+  Route::post('/webhook','WebhookController@handleTest');
 });
 Route::post('/save-subscription/{id}',function($id, Request $request){
   $user = \App\User::findOrFail($id);

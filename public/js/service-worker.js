@@ -8,7 +8,7 @@ self.addEventListener('push', function(event) {
       icon: data.icon,
       vibrate: [300],
       actions: data.actions,
-      data: {id:data.id}
+      data: {id:data.id,test:data.test}
     });
     console.log(data.id);
     console.log('This push event has data: ', event.data.text());
@@ -19,11 +19,14 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
   console.log(event.notification);
   var eventId = event.notification.data.id;
+  var test = event.notification.data.test;
   console.log(eventId);
   event.notification.close();
 
   if (event.action === 'view_details') {
-    clients.openWindow("/view-details?event_id=" + eventId);
+    
+      clients.openWindow("/view-details?event_id=" + eventId+"&test="+test);
+
   }
 
 }, false);

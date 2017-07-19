@@ -11,4 +11,9 @@ class WebhookController extends Controller
       $user = \App\User::findOrFail(1);
       $user->notify(new StripeNotification($request->type, $request->data['object'],null,$request->id));
     }
+
+    public function handleTest(Request $request){
+      $user = \App\User::findOrFail(1);
+      $user->notify(new StripeNotification($request->type, $request->data['object'],null,$request->id,true));
+    }
 }
