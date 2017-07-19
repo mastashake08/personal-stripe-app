@@ -119,7 +119,7 @@ class StripeController extends Controller
       return view('pay-invoice')->with($with);
     }
     public function getEvent(Request $request){
-      if($request->test){
+      if($request->test ==  true){
           \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_TEST'));
       }
       else{
