@@ -20,14 +20,17 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
   console.log(event.notification);
   var eventId = event.notification.data.id;
-  var test = event.notification.data.test;
   console.log(eventId);
   event.notification.close();
 
   if (event.action === 'view_details') {
 
-      clients.openWindow("/view-details?event_id=" + eventId+"&test="+test);
+      clients.openWindow("/view-details?event_id=" + eventId+"&test=false");
 
+  }
+  else if(event.action === 'view_details_test'){
+
+          clients.openWindow("/view-details?event_id=" + eventId+"&test=true");
   }
 
 }, false);

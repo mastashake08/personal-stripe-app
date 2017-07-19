@@ -43,7 +43,24 @@ class StripeNotification extends Notification
 
     public function toWebPush($notifiable, $notification)
     {
-        
+        if($this->test){
+
+          if($this->message !== null){
+            return WebPushMessage::create()
+
+                ->title('New Stripe Notification - '. $this->type)
+                ->icon(url('/push.png'))
+                ->body($this->message);
+
+          }
+          return WebPushMessage::create()
+              ->id($this->event_id)
+              ->title('New Stripe Notification - '. $this->type)
+              ->icon(url('/push.png'))
+              ->body("$".money_format('%.2n', $this->data["amount"]/100))
+              ->action('View Details','view_details_test');
+        }
+        else{
         if($this->message !== null){
           return WebPushMessage::create()
 
@@ -58,6 +75,7 @@ class StripeNotification extends Notification
             ->icon(url('/push.png'))
             ->body("$".money_format('%.2n', $this->data["amount"]/100))
             ->action('View Details','view_details');
+          }
     }
 
 
