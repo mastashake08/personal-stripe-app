@@ -1,6 +1,7 @@
 self.addEventListener('push', function(event) {
   if (event.data) {
     var data = event.data.json();
+    console.log(data);
     self.registration.showNotification(data.title,{
       id: data.id,
       body: data.body,
@@ -24,7 +25,7 @@ self.addEventListener('notificationclick', function(event) {
   event.notification.close();
 
   if (event.action === 'view_details') {
-    
+
       clients.openWindow("/view-details?event_id=" + eventId+"&test="+test);
 
   }
