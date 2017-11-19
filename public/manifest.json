@@ -50,8 +50,5 @@
   "background": {
     "scripts": ["service-worker.js"]
   },
-  "related_applications": [{
-    "platform": "web"
-}],
   "splash_pages": null
 }
