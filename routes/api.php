@@ -32,7 +32,7 @@ Route::post('/save-subscription',function(Request $request){
   return response()->json([
     'success' => true
   ]);
-});
+})->middleware('auth:api');
 
 Route::post('/send-notification/{id}', function($id, Request $request){
   $user = \App\User::findOrFail($id);
