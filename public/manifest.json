@@ -1,6 +1,7 @@
 {
   "name": "Stripe Management",
   "short_name": "Stripe Management",
+  "description": "Manage Payments On The Go!",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
