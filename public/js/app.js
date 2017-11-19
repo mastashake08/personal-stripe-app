@@ -12261,7 +12261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var that = this;
       var promise = new Promise(function (resolve, reject) {
         // do a thing, possibly async, then…
-
+        console.log(that.registration);
         if (that.registration != null) {
           resolve(that.registration);
         } else {
