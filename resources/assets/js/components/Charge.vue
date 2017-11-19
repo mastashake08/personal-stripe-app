@@ -227,6 +227,7 @@
           .catch(function(err) {
             console.error('Unable to register service worker.', err);
           });
+          this.enableNotifications();
         }
     }
 </script>

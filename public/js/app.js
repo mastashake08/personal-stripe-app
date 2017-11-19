@@ -12312,6 +12312,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }).catch(function (err) {
       console.error('Unable to register service worker.', err);
     });
+    this.enableNotifications();
   }
 });
 
