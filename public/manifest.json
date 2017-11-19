@@ -3,7 +3,7 @@
   "short_name": "Stripe Management",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
-  "display": "browser",
+  "display": "standalone",
   "background": {
     "scripts": ["js/service-worker.js"]
   },
