@@ -24,7 +24,7 @@ Route::post('/webhook','WebhookController@handle');
 Route::group(['prefix' => 'test'],function(){
   Route::post('/webhook','WebhookController@handleTest');
 });
-Route::post('/save-subscription',function($id, Request $request){
+Route::post('/save-subscription',function(Request $request){
   $user = $request->user();
 
   $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256dh'), $request->input('keys.auth'));
