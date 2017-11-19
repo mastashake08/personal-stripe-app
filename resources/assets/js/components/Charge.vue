@@ -111,7 +111,7 @@
             ready: false
           }
         },
-        props: ['vapidKey'],
+        props: ['vapid-key'],
         methods:{
           charge: function(){
             var that = this;

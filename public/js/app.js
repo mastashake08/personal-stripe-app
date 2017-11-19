@@ -12207,7 +12207,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
 
-  props: ['vapidKey'],
+  props: ['vapid-key'],
   methods: {
     charge: function charge() {
       var that = this;
