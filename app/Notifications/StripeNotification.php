@@ -61,7 +61,7 @@ class StripeNotification extends Notification
               ->action('View Details','view_details_test');
         }
         else{
-        if($this->message !== null && $this->data == null){
+        if($this->message !== null){
           return WebPushMessage::create()
 
               ->title('New Stripe Notification - '. $this->type)

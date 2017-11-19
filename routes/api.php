@@ -28,7 +28,7 @@ Route::post('/save-subscription',function(Request $request){
   $user = $request->user();
 
   $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256dh'), $request->input('keys.auth'));
-  $user->notify(new \App\Notifications\StripeNotification("Welcome To WebPush", "You will now get all of our push notifications"));
+  //$user->notify(new \App\Notifications\StripeNotification("Welcome To WebPush", "You will now get all of our push notifications"));
   return response()->json([
     'success' => true
   ]);
