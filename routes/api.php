@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/balance','StripeController@getBalance');
 Route::post('/charge','StripeController@charge');
+Route::post('/quick-charge','StripeController@quickCharge');;
 Route::post('/webhook','WebhookController@handle');
 Route::group(['prefix' => 'test'],function(){
   Route::post('/webhook','WebhookController@handleTest');
