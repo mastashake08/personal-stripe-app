@@ -10,7 +10,7 @@
                       <h2>Available Balance: {{balance.available}}</h2>
                       <br>
                       <h2>Pending Balance: {{balance.pending}}</h2>
-                      <button v-on:click="enableNotifications" class="btn btn-info">Enable Notifications</button>
+                      <button v-on:click="enableNotifications" class="btn btn-success">Enable Notifications</button>
                       <fieldset>
                         <legend>Payment</legend>
                         <div class="form-group">

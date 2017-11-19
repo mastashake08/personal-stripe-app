@@ -12185,6 +12185,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -12312,7 +12313,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }).catch(function (err) {
       console.error('Unable to register service worker.', err);
     });
-    this.enableNotifications();
   }
 });
 
@@ -32203,7 +32203,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-heading"
   }, [_vm._v("Quick Charge")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_c('h2', [_vm._v("Available Balance: " + _vm._s(_vm.balance.available))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('h2', [_vm._v("Pending Balance: " + _vm._s(_vm.balance.pending))]), _vm._v(" "), _c('fieldset', [_c('legend', [_vm._v("Payment")]), _vm._v(" "), _c('div', {
+  }, [_c('h2', [_vm._v("Available Balance: " + _vm._s(_vm.balance.available))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('h2', [_vm._v("Pending Balance: " + _vm._s(_vm.balance.pending))]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": _vm.enableNotifications
+    }
+  }, [_vm._v("Enable Notifications")]), _vm._v(" "), _c('fieldset', [_c('legend', [_vm._v("Payment")]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('label', {
     staticClass: "col-sm-3 control-label",
