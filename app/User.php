@@ -1,13 +1,13 @@
 <?php
 
 namespace App;
-
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use NotificationChannels\WebPush\HasPushSubscriptions;
 class User extends Authenticatable
 {
-    use Notifiable,HasPushSubscriptions;
+    use Notifiable,HasPushSubscriptions, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
