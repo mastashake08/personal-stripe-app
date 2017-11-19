@@ -75,7 +75,7 @@
                             <input type="text" class="form-control" autocomplete="cvc" v-model="card.cvv" id="cvv" placeholder="Security Code">
                           </div>
                         </div>
-                      
+
                         <div class="form-group">
                           <div class="col-sm-offset-3 col-sm-9">
                             <button type="button" class="btn btn-success" v-on:click="charge">Pay Now</button>
@@ -218,7 +218,7 @@
           });
           this.vapid_public_key = this.vapidKey;
           var that = this;
-          navigator.serviceWorker.register('js/service-worker.js')
+          navigator.serviceWorker.register('service-worker.js')
           .then(function(registration) {
             console.log('Service worker successfully registered.');
             that.registration = registration;

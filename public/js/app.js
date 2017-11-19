@@ -12305,7 +12305,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     });
     this.vapid_public_key = this.vapidKey;
     var that = this;
-    navigator.serviceWorker.register('js/service-worker.js').then(function (registration) {
+    navigator.serviceWorker.register('service-worker.js').then(function (registration) {
       console.log('Service worker successfully registered.');
       that.registration = registration;
       return registration;
