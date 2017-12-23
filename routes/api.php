@@ -41,3 +41,13 @@ Route::post('/send-notification/{id}', function($id, Request $request){
     'success' => true
   ]);
 });
+
+Route::get('/subscriptions',function(){
+  \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+  return \Stripe\Customer::all(['limit'=>25]);
+});
+
+Route::get('/plans',function(){
+  \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+  return \Stripe\Plan::all(['limit'=>25]);
+});

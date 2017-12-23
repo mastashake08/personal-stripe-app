@@ -53,6 +53,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                      <li><a href="{{url('/invoice')}}">Send Invoice</a></li>
+                      <li><a href="{{url('/subscriptions')}}">Subscriptions</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>

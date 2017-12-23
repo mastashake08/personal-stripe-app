@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/invoice',function(){
   return view('invoice');
 });
+Route::get('/subscriptions',function(){
+  return view('subscriptions');
+});
 Route::post('/invoice','StripeController@sendInvoice');
 Auth::routes();
 Route::get('/pay-invoice/{id}','StripeController@getInvoice');
