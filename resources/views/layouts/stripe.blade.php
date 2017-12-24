@@ -26,7 +26,7 @@
     </script>
 </head>
 <body>
-    <div id="app">
+    <div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -48,7 +48,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{url('/how-to-check')}}">How To Check Mail</a></li>
+                        &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->

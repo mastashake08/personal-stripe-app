@@ -23,9 +23,9 @@
                   <div class="panel-body">
                     <input v-model="customer.email" placeholder="Customer Email" type="email" class="form-control"></input>
                     <select class="form-control" v-model="customer.plan">
-                      <option v-for="plan in plans" value="plan.id">{{plan.name}}</option>
+                      <option v-for="plan in plans" v-model="plan.id" :value="plan.id">{{plan.name}}</option>
                     </select>
-                    <button class="btn btn-sm btn-default">Send Subscription Email</button>
+                    <button class="btn btn-sm btn-default" v-on:click="addCustomer">Send Subscription Email</button>
                   </div>
               </div>
           </div>
@@ -52,7 +52,13 @@
         },
         props: [],
         methods:{
-
+          addCustomer: function(){
+            axios.post('/api/customer',{email:this.customer.email,plan_id:this.customer.plan}).then(function(data){
+              console.log(data.data);
+            }).catch(function(error){
+              console.log(error.message);
+            });
+          }
         },
         created(){
           var that = this;

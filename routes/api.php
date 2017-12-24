@@ -51,3 +51,5 @@ Route::get('/plans',function(){
   \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
   return \Stripe\Plan::all(['limit'=>25]);
 });
+
+Route::resource('/customer','CustomerController');
